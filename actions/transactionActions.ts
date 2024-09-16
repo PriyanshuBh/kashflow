@@ -314,7 +314,7 @@ export const createTransaction = async ({
               budgetId,
               month: formData.date.getUTCMonth(),
               year: formData.date.getUTCFullYear(),
-            } || "",
+            } ,
         },
         create: {
           budgetId,
