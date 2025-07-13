@@ -1,16 +1,10 @@
 "use client";
+import { Suspense } from "react";
 import LoginForm from "./LoginForm";
-
 import { useSearchParams } from "next/navigation";
-// interface Props {
-//   searchParams: {
-//     callbackUrl?: string;
-//   };
-// }
 
-export default  function LoginPage() {
-
-   const searchParams = useSearchParams();
+function LoginPageContent() {
+  const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/";
 
   return (
@@ -23,6 +17,12 @@ export default  function LoginPage() {
       </div>
     </div>
   );
-};
+}
 
-
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div>Loading login...</div>}>
+      <LoginPageContent />
+    </Suspense>
+  );
+}
