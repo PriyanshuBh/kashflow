@@ -284,7 +284,7 @@ export const createTransaction = async ({
               day: formData.date.getUTCDate(),
               month: formData.date.getUTCMonth(),
               year: formData.date.getUTCFullYear(),
-            } || "",
+            },
         },
         create: {
           budgetId,
@@ -303,6 +303,8 @@ export const createTransaction = async ({
           },
         },
       }),
+
+      
 
       // Update year history
       prisma.yearHistory.upsert({
